@@ -5,11 +5,26 @@
   background-color: #0c0c0c;
   height: 100vh;
 }
+.edit-btn {
+  width: 80%;
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.cancel {
+  background-color: transparent;
+  border: none;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  color: rgb(173, 36, 43);
+}
 .close {
   background-color: transparent;
   border: none;
-  align-self: end;
-  margin: 1rem 1.15rem 0 0;
   font-size: 1rem;
   font-weight: 700;
   cursor: pointer;

@@ -46,11 +46,22 @@ function EditPage(props) {
     updateUser(updatedUser, dispatch);
   };
 
+  const handleCancel = () => {
+    setEdit(false);
+  };
+
   return (
     <div>
       <form onSubmit={handleSubmit}>
         <section className="edit-container">
-          <button className="close">SAVE</button>
+          <div className="edit-btn">
+            <button onClick={handleCancel} className="cancel">
+              Cancel
+            </button>
+            <button type="submit" className="close">
+              SAVE
+            </button>
+          </div>
           <div className="edit-profile">Edit Profile</div>
           <div className="input-container">
             <Input label="Display Name" data={user.name} setData={setName} />

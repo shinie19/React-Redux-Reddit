@@ -1,5 +1,6 @@
 import React from "react";
 import "../Edit/edit.css";
+import "../Posts/post.css";
 
 function Input(props) {
   const { inputType, classStyle, label, data, setData } = props;
