@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Input from "../InputFields/Input";
-import { update } from "../User/UserSlice";
+import { updateUser } from "../../api/apiRequests";
 import "./edit.css";
 
 EditPage.propTypes = {};
@@ -34,7 +34,7 @@ function EditPage(props) {
     e.preventDefault();
     setEdit(false);
 
-    const updateUser = {
+    const updatedUser = {
       name,
       age,
       about,
@@ -42,9 +42,8 @@ function EditPage(props) {
       themeColor: theme,
     };
 
-    const action = update(updateUser);
-    // console.log(action);
-    dispatch(action);
+    // Call api updateUser
+    updateUser(updatedUser, dispatch);
   };
 
   return (

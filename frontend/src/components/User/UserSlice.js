@@ -8,9 +8,24 @@ const userSlice = createSlice({
     about: "I'm a software developer",
     avatarUrl: "https://i.redd.it/mozfkrjpoa261.png",
     themeColor: "#e69138",
+    pending: false,
+    error: false,
   },
   reducers: {
-    update(state, action) {
+    updateStart(state) {
+      state.pending = true;
+    },
+
+    updateError(state) {
+      state.pending = false;
+      state.error = true;
+    },
+
+    updateSuccess(state, action) {
+      state.pending = false;
+      state.error = false;
+
+      //update
       state.name = action.payload.name;
       state.age = action.payload.age;
       state.about = action.payload.about;
@@ -22,4 +37,4 @@ const userSlice = createSlice({
 
 const { reducer, actions } = userSlice;
 export default reducer;
-export const { update } = actions;
+export const { updateStart, updateError, updateSuccess } = actions;
