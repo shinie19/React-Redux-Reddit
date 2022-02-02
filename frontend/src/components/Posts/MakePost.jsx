@@ -19,6 +19,7 @@ function MakePost(props) {
     setOpenPost(false);
 
     const newPost = {
+      id: Math.floor(Math.random() * 10000) + 1,
       title,
       description: desc,
       tag: selectedIdx,
