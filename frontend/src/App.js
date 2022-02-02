@@ -1,21 +1,14 @@
+import { useState } from "react";
 import "./App.css";
+import EditPage from "./components/Edit/EditPage";
+import Header from "./components/Header/Header";
 
 function App() {
+  const [isEdit, setEdit] = useState(false);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {isEdit ? <EditPage setEdit={setEdit} /> : <Header setEdit={setEdit} />}
     </div>
   );
 }
