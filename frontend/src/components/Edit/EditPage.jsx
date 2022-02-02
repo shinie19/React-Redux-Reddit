@@ -1,11 +1,13 @@
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Input from "../InputFields/Input";
+import { update } from "../User/UserSlice";
 import "./edit.css";
 
 EditPage.propTypes = {};
 
 function EditPage(props) {
-  const avatarUrl = [
+  const avatarUrls = [
     "https://i.redd.it/mozfkrjpoa261.png",
     "https://i.redd.it/0whvv494dfo61.png",
     "https://preview.redd.it/33suwtxvjrv51.png?width=471&format=png&auto=webp&s=49c80899f80714c898eb303bb87794a63e42d904",
@@ -17,10 +19,13 @@ function EditPage(props) {
     "https://preview.redd.it/oiynpcmqqow61.png?auto=webp&s=231a94f63382c22994f899d7ca1f5ce2068e08a0",
   ];
 
-  const [name, setName] = useState("Shinie");
-  const [age, setAge] = useState(20);
-  const [about, setAbout] = useState("I'm a software developer");
-  const [image, setImage] = useState("https://i.redd.it/mozfkrjpoa261.png");
+  const user = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+
+  const [name, setName] = useState(user.name);
+  const [age, setAge] = useState(user.age);
+  const [about, setAbout] = useState(user.about);
+  const [image, setImage] = useState(user.avatarUrl);
   const [theme, setTheme] = useState("#e69138");
 
   const { setEdit } = props;
@@ -28,6 +33,18 @@ function EditPage(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
     setEdit(false);
+
+    const updateUser = {
+      name,
+      age,
+      about,
+      avatarUrl: image,
+      themeColor: theme,
+    };
+
+    const action = update(updateUser);
+    // console.log(action);
+    dispatch(action);
   };
 
   return (
@@ -37,19 +54,19 @@ function EditPage(props) {
           <button className="close">SAVE</button>
           <div className="edit-profile">Edit Profile</div>
           <div className="input-container">
-            <Input label="Display Name" data={name} setData={setName} />
-            <Input label="Age" data={age} setData={setAge} />
+            <Input label="Display Name" data={user.name} setData={setName} />
+            <Input label="Age" data={user.age} setData={setAge} />
             <Input
               inputType="textarea"
               classStyle="input-about"
               label="About"
-              data={about}
+              data={user.about}
               setData={setAbout}
             />
 
             <label>Profile Picture</label>
             <div className="input-image-container">
-              {avatarUrl.map((url, index) => {
+              {avatarUrls.map((url, index) => {
                 return (
                   <div key={index}>
                     <img

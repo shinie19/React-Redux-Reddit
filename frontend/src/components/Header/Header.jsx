@@ -1,10 +1,12 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import "./header.css";
 
 Header.propTypes = {};
 
 function Header(props) {
   const { setEdit } = props;
+  const user = useSelector((state) => state.user);
 
   const handleEditClick = () => {
     setEdit(true);
@@ -14,23 +16,18 @@ function Header(props) {
     <>
       <header
         style={{
-          backgroundColor: "#e69138",
-          backgroundImage:
-            "linear-gradient(180deg, #e69138 2%, #e69138, 65%, #181818 100%)",
+          backgroundColor: `${user.themeColor}`,
+          backgroundImage: `linear-gradient(180deg, ${user.themeColor} 2%, ${user.themeColor}, 65%, #181818 100%)`,
         }}
       >
         <div className="info-container">
           <div className="info-edit" onClick={handleEditClick}>
             Edit
           </div>
-          <img
-            className="info-ava"
-            src="https://i.redd.it/mozfkrjpoa261.png"
-            alt=""
-          />
-          <div className="info-username">Shinie Nguyen</div>
-          <div className="info-age">20 years old</div>
-          <div className="info-about">I'm a software developer</div>
+          <img className="info-ava" src={user.avatarUrl} alt="" />
+          <div className="info-username">{user.name}</div>
+          <div className="info-age">{user.age} years old</div>
+          <div className="info-about">{user.about}</div>
         </div>
       </header>
     </>
