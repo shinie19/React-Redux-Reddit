@@ -10,13 +10,13 @@ function EditPage(props) {
   const avatarUrls = [
     "https://i.redd.it/mozfkrjpoa261.png",
     "https://i.redd.it/0whvv494dfo61.png",
-    "https://preview.redd.it/33suwtxvjrv51.png?width=471&format=png&auto=webp&s=49c80899f80714c898eb303bb87794a63e42d904",
-    "https://preview.redd.it/fbtoo37rimv51.png?auto=webp&s=e834ad0597f4cee4b3b82201a3b695ae369e6acc",
+    "https://i.redd.it/awxgvk20n1261.png",
+    "https://i.redd.it/8kpsg65jc9j61.png",
+    "https://preview.redd.it/rrz3hmsxcll71.png?width=640&crop=smart&auto=webp&s=87cc5ed38d8f088ef9fffef7a4c5756b64309d6a",
     "https://i.redd.it/zx8xf594dfo61.png",
-    "https://preview.redd.it/8lhmmwdcx4381.png?auto=webp&s=b48595300f0f71629fd64b9cd9dcfaceb1047f50",
-    "https://preview.redd.it/le5c84d18vv61.jpg?width=497&format=pjpg&auto=webp&s=97c8dcdbdc91e9d5569a24ffef21ed2a6693e2d1",
-    "https://preview.redd.it/j4clkwtw5jv51.png?auto=webp&s=0d46c1ad5667f147056f2696833bd385b5bbc1c0",
-    "https://preview.redd.it/oiynpcmqqow61.png?auto=webp&s=231a94f63382c22994f899d7ca1f5ce2068e08a0",
+    "https://preview.redd.it/5es1lne1du261.png?width=640&crop=smart&auto=webp&s=e6eb0ee5710710000e4fbace119112de63324a38",
+    "https://preview.redd.it/mkemq6sqf7261.png?auto=webp&s=314cb48d9de13f542a9e39f54b9991e219c53d79",
+    "https://preview.redd.it/n9nnnionfu361.png?auto=webp&s=c010326282ec4b19b9b6340d7cdb1616b5c70968",
   ];
 
   const user = useSelector((state) => state.user);
