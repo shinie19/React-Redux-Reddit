@@ -9,17 +9,21 @@ function Post(props) {
 
   return (
     <section className="post-container">
-      {posts.slice(1).map((post, idx) => {
-        return (
-          <div key={idx} className="post">
-            <p className="post-title">{post.title}</p>
-            <p className={`post-tag-${tags[post.tag]} post-tag`}>
-              {tags[post.tag]}
-            </p>
-            <p className="post-description">{post.description}</p>
-          </div>
-        );
-      })}
+      {posts
+        .slice(1)
+        .slice(0)
+        .reverse()
+        .map((post, idx) => {
+          return (
+            <div key={idx} className="post">
+              <p className="post-title">{post.title}</p>
+              <p className={`post-tag-${tags[post.tag]} post-tag`}>
+                {tags[post.tag]}
+              </p>
+              <p className="post-description">{post.description}</p>
+            </div>
+          );
+        })}
     </section>
   );
 }
